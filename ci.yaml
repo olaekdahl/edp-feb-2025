@@ -1,0 +1,12 @@
+name: Demo CI
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Some shell script
+        run: echo "I'm a script. Look at me run..."
