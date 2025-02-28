@@ -2,7 +2,7 @@
 
 # People Picker
 
-This is the :octocat: github repo for A React project to select a person from a list of people.
+This is the :octocat: GitHub repo for a React project to select a person from a list of people.
 
 
 
