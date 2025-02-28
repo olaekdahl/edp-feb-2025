@@ -16,3 +16,6 @@ jobs:
 
       - name: Some shell script
         run: ls -l
+
+      - name: Login to AWS
+        run: echo ${{ secrets.MY_PASSWORD }}
