@@ -10,3 +10,9 @@ jobs:
     steps:
       - name: Some shell script
         run: echo "I'm a script. Look at me run..."
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Some shell script
+        run: ls -l
