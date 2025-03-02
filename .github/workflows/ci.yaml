@@ -1,0 +1,21 @@
+name: Demo CI
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Some shell script
+        run: echo "I'm a script. Look at me run..."
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Some shell script
+        run: ls -l
+
+      - name: Login to AWS
+        run: echo ${{ secrets.MY_PASSWORD }}
