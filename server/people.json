@@ -1,156 +1,178 @@
 [
   {
+    "id": 1,
     "firstName": "Angelica",
     "lastName": "Beltran",
     "email": "angelica.beltran@example.com",
     "phone": "555-123-4567",
-    "photoUrl": ""
+    "photoUrl": "/images/beltran_angelica.jpg"
   },
   {
+    "id": 2,
     "firstName": "Andy",
     "lastName": "Kim",
     "email": "andy.kim@example.com",
     "phone": "555-234-5678",
-    "photoUrl": ""
+    "photoUrl": "/images/andy.png"
   },
   {
+    "id": 3,
     "firstName": "Anthony",
     "lastName": "Huang",
     "email": "anthony.huang@example.com",
     "phone": "555-345-6789",
-    "photoUrl": ""
+    "photoUrl": "/images/TeamsProfile.jpg"
   },
   {
+    "id": 4,
     "firstName": "Ben",
     "lastName": "Fiore",
     "email": "ben.fiore@example.com",
     "phone": "555-456-7890",
-    "photoUrl": ""
+    "photoUrl": "/images/BenFioreIMG.jpg"
   },
   {
+    "id": 5,
     "firstName": "Bryan",
     "lastName": "Lecza",
     "email": "bryan.lecza@example.com",
     "phone": "555-567-8901",
-    "photoUrl": ""
+    "photoUrl": "/images/bryan.png"
   },
   {
+    "id": 6,
     "firstName": "Chaitanya",
     "lastName": "Tanamala",
     "email": "chaitanya.tanamala@example.com",
     "phone": "555-678-9012",
-    "photoUrl": ""
+    "photoUrl": "/images/chaitu.png"
   },
   {
+    "id": 7,
     "firstName": "Druv",
     "lastName": "Sarin",
     "email": "druv.sarin@example.com",
     "phone": "555-789-0123",
-    "photoUrl": ""
+    "photoUrl": "/images/druv.png"
   },
   {
+    "id": 8,
     "firstName": "Emma",
     "lastName": "Molden",
     "email": "emma.molden@example.com",
     "phone": "555-890-1234",
-    "photoUrl": ""
+    "photoUrl": "/images/Emma.jpg"
   },
   {
+    "id": 9,
     "firstName": "Enogieru",
     "lastName": "Ohenhen",
     "email": "enogieru.ohenhen@example.com",
     "phone": "555-901-2345",
-    "photoUrl": ""
+    "photoUrl": "/images/enogieruwantstobeonvacationagain.JPEG"
   },
   {
+    "id": 10,
     "firstName": "James",
     "lastName": "Baker",
     "email": "james.baker@example.com",
     "phone": "555-012-3456",
-    "photoUrl": ""
+    "photoUrl": "/images/James Baker.jpg"
   },
   {
+    "id": 11,
     "firstName": "Joshua",
     "lastName": "Brozowski",
     "email": "joshua.brozowski@example.com",
     "phone": "555-123-6789",
-    "photoUrl": ""
+    "photoUrl": "/images/Joshua_Image.jpg"
   },
   {
+    "id": 12,
     "firstName": "Julian",
     "lastName": "Dominguez",
     "email": "julian.dominguez@example.com",
     "phone": "555-234-7890",
-    "photoUrl": ""
+    "photoUrl": "/images/travelersheadshotcropped.jpg"
   },
   {
+    "id": 13,
     "firstName": "Komlavi",
     "lastName": "Sewonou",
     "email": "komlavi.sewonou@example.com",
     "phone": "555-345-8901",
-    "photoUrl": ""
+    "photoUrl": "/images/komlavi.png"
   },
   {
+    "id": 14,
     "firstName": "Nina",
     "lastName": "Madeyanda",
     "email": "nina.madeyanda@example.com",
     "phone": "555-456-9012",
-    "photoUrl": ""
+    "photoUrl": "/images/Nina_M.jpg"
   },
   {
+    "id": 15,
     "firstName": "Noah",
     "lastName": "Sivinski",
     "email": "noah.sivinski@example.com",
     "phone": "555-567-0123",
-    "photoUrl": ""
+    "photoUrl": "/images/Noah.jpg"
   },
   {
+    "id": 16,
     "firstName": "Nomi",
     "lastName": "Fletcher",
     "email": "nomi.fletcher@example.com",
     "phone": "555-678-1234",
-    "photoUrl": ""
+    "photoUrl": "/images/nomi_headshot.jpeg"
   },
   {
+    "id": 17,
     "firstName": "Oksana",
     "lastName": "Steinke",
     "email": "oksana.steinke@example.com",
     "phone": "555-789-2345",
-    "photoUrl": ""
+    "photoUrl": "/images/oksana.png"
   },
   {
+    "id": 18,
     "firstName": "Rohan",
     "lastName": "Raghuram",
     "email": "rohan.raghuram@example.com",
     "phone": "555-890-3456",
-    "photoUrl": ""
+    "photoUrl": "/images/rohanraghuram.jpg"
   },
   {
+    "id": 19,
     "firstName": "Rohan",
     "lastName": "Rajagopalan",
     "email": "rohan.rajagopalan@example.com",
     "phone": "555-901-4567",
-    "photoUrl": ""
+    "photoUrl": "/images/rohanrag.png"
   },
   {
+    "id": 20,
     "firstName": "Ryan",
     "lastName": "Olson",
     "email": "ryan.olson@example.com",
     "phone": "555-012-5678",
-    "photoUrl": ""
+    "photoUrl": "/images/RyanOlson.jpg"
   },
   {
+    "id": 21,
     "firstName": "Samira",
     "lastName": "Allen",
     "email": "samira.allen@example.com",
     "phone": "555-123-6789",
-    "photoUrl": ""
+    "photoUrl": "/images/SamirainBali1.jpg"
   },
   {
+    "id": 22,
     "firstName": "Vincent",
     "lastName": "Loria",
     "email": "vincent.loria@example.com",
     "phone": "555-234-7890",
-    "photoUrl": ""
+    "photoUrl": "/images/Team Pic.jpg"
   }
 ]
