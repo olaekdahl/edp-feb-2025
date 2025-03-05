@@ -37,7 +37,7 @@ export const getPersonByFirstName = async (firstName) =>
  * @returns {Promise<Person>} A promise that resolves to the new person added -- with their DB id!
  */
 export const addPerson = async (newPerson) => {
-  newPerson.id = getNextId();
+  newPerson.id = getNextId(people);
   people = [...people, newPerson];
   savePeopleToFile(people);
   return newPerson;
@@ -78,5 +78,5 @@ const readPeopleFromFile = async () => {
 }
 
 const savePeopleToFile = async (people) => {
-  await fs.writeFile(dbFileName, JSON.stringify(people));
+  await fs.promises.writeFile(dbFileName, JSON.stringify(people));
 }
