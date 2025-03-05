@@ -5,3 +5,16 @@
 This is the :octocat: GitHub repo for a React project to select a person from a list of people.
 
 This app will be used to pick a random person.
+
+
+## Start the database server
+```bash
+cd data
+npm run start
+```  
+
+## Reloading the database
+```bash
+cd data
+npm run reset
+```
