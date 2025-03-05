@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node --watch index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-db": "mongod --dbpath ../data/db",
+    "reset-db": "mongoimport --db edp --collection people --drop --jsonArray --file ../data/people.json"
   },
   "author": "Ola, Rap, etc.",
   "license": "ISC",

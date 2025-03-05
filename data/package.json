@@ -1,0 +1,11 @@
+{
+  "name": "data",
+  "version": "0.0.1",
+  "description": "The data server for people picker",
+  "scripts": {
+    "start": "mongod --dbpath ./db",
+    "reset": "mongoimport --db edp --collection people --drop --jsonArray --file ./people.json"
+  },
+  "author": "Ola, Rap, and a cast of 1,000s",
+  "license": "ISC"
+}
