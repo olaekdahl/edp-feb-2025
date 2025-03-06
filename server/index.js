@@ -9,13 +9,13 @@ app.get("/knockknock", (req, res) => {
   res.send("Who's there?")
 });
 
-// Write a handler for a GET request for all the people at "/people"
+// GET request for all the people at "/people"
 app.get("/api/people", async (req, res) => {
   res.send(await getPeople());
 })
 
-// Write a handler for a GET request to get a person by firstName
-app.get("/api/people/:id", async (req, res) => {
+// GET request to get a person by id
+app.get("/api/people/:id([0-9]+)", async (req, res) => {
   const id = req.params.id;
   const person = await getPerson(id)
   if (!person) {
@@ -24,8 +24,7 @@ app.get("/api/people/:id", async (req, res) => {
   res.send(person)
 });
 
-//TODO: How to get the by firstname to be seen
-// Write a handler for a GET request to get a person by firstName
+// GET request to get a person by firstName
 app.get("/api/people/:firstname", async (req, res) => {
   const firstName = req.params.firstname;
   const person = await getPersonByFirstName(firstName)
@@ -46,7 +45,6 @@ app.delete("/api/people/:id", async (req, res) => {
 });
 
 // TODO app.put()
-// TODO app.patch()
 app.patch("/api/people/:id", async (req, res) => {
   const id = +req.params.id;
   const existingPerson = await getPerson(id);
