@@ -55,21 +55,29 @@ export const deletePerson = async (id) => {
 
 /**
  * Updates/changes a person in the DB with the person passed in
- * @param {Person} newPerson The updated person
+ * @param {id} personId
+ * @param {Person} newPerson
  * @returns {Promise<Person>} A promise that resolves to the updated person
- * 
- * newPerson must have an id. 
  */
-export const updatePerson = async (newPerson) => {
-  const thePerson = allPeople.find(p => p.id === newPerson.id)
-  for (let prop in thePerson)
+export const updatePerson = async (id, newPerson) => {
+  const thePerson = await getPerson(id)
+  for (let prop in thePerson) {
+    if (prop === "id") continue; // Skip the id - should never change
     thePerson[prop] = newPerson[prop]
+  }
   savePeopleToFile(people);
   return thePerson;
 }
 
+/**************************************************************/
 // Private/local functions below
-const getNextId = (people) => Math.max(...people.map(p => p.id)) + 1;
+/**************************************************************/
+
+const getNextId = (people) => {
+  const biggestId = Math.max(...people.map(p => p.id));
+  if (isNaN(biggestId)) throw new Error("Error getting the next ID.")
+  return biggestId + 1;
+}
 
 const readPeopleFromFile = async () => {
   if (!fs.existsSync(dbFileName)) throw "File doesn't exist."

@@ -1,7 +1,9 @@
 import express from "express";
+import cors from 'cors';
 import { addPerson, deletePerson, getPeople, getPersonByFirstName, getPerson, updatePerson } from "./repositories/flatFileRepo.js";
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.get("/knockknock", (req, res) => {
   res.send("Who's there?")
@@ -33,9 +35,6 @@ app.get("/api/people/:firstname", async (req, res) => {
   res.send(person)
 });
 
-// TODO app.put()
-// TODO app.patch()
-
 app.delete("/api/people/:id", async (req, res) => {
   const id = +req.params.id;
   const person = await getPerson(id);
@@ -44,6 +43,21 @@ app.delete("/api/people/:id", async (req, res) => {
   }
   await deletePerson(id);
   res.status(200).send(`'Person ${id}' successfully deleted`)
+});
+
+// TODO app.put()
+// TODO app.patch()
+app.patch("/api/people/:id", async (req, res) => {
+  const id = +req.params.id;
+  const existingPerson = await getPerson(id);
+  console.log(existingPerson)
+  if (!existingPerson) {
+    res.status(404).send(`No person with id ${id}`);
+    return;
+  }
+  const personToUpdate = req.body;
+  const updatedPerson = await updatePerson(id, personToUpdate)
+  res.status(200).send(updatedPerson);
 });
 
 // Insert a new person
