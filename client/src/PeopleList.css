@@ -1,0 +1,4 @@
+.PeopleList {
+  display: flex;
+  flex-wrap: wrap;
+}

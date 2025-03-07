@@ -1,5 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react'
-import { PeopleList } from './PeopleList';
+import { Link, Route, Routes, Navigate } from 'react-router-dom';
+import "./App.css";
+import { AboutUs, ContactUs } from './OtherComponents';
+import { PeoplePicker } from './PeoplePicker';
 
 function App() {
   // const [people, setPeople] = useState([]);
@@ -22,33 +26,27 @@ function App() {
 
   return (
     <>
-      <header>
-        <h1>People Picker</h1>
-        <img style={styles.logo} src="https://play-lh.googleusercontent.com/2A-bF1LdqB8TKZLSfC8tm2_QX47Bp_3RIdt3GqWaTXaaV673Uvt8Jf-s_2cW6mzeJQ=w480-h960-rw" alt="Logo" />
+      <header id="pageHeader">
+        <img style={styles.logo} src="/images/logo.webp" alt="Logo" />
+        <Link to="/" className="homeLink">Best EDP Cohort</Link>
+        <Link to="/picker">Picker</Link>
+        <Link to="/add">Add a Person</Link>
+        <Link to="/about">About Us</Link>
+        <Link to="/contact">Contact Us</Link>
       </header>
       <main>
-        <div className='topDiv'>
-          <section>
-            <button onClick={() => fetchAllPeople()}>Reset</button>
-            <button onClick={() => pickAPerson()}>Pick victim</button>
-          </section>
-          {pickedPerson && <section>
-            <h2>Picked person</h2>
-            <div>{pickedPerson?.firstName}</div>
-          </section>}
-        </div>
-        <section>
-          <h2>Unpicked people</h2>
-          {unpickedPeople.length > 0 ?
-            <PeopleList listOPeople={unpickedPeople} /> :
-            <p>All people have been picked.</p>}
-        </section>
-        <section>
-          <h2>Already picked people</h2>
-          <p>Picked people will go here eventually</p>
-          <PeopleList listOPeople={pickedPeople} /> :
+        <Routes>
+          <Route path="/" element={<Navigate to="/picker" />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/picker" element={<PeoplePicker fetchAllPeople={fetchAllPeople}
+            pickAPerson={pickAPerson}
+            pickedPerson={pickedPerson}
+            unpickedPeople={unpickedPeople}
+            pickedPeople={pickedPeople} />} />
+          <Route path="*" element={<Navigate to="/picker" />} />
+        </Routes>
 
-        </section>
       </main>
       <footer>
         <p>Copyright &copy; The best EDP cohort, 2025. All rights reserved.</p>

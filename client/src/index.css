@@ -11,6 +11,10 @@
   background-color: var(--light1);
 }
 
+body {
+  margin-top: 90px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     color: var(--lite1);
