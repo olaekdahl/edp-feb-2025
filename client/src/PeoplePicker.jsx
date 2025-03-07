@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { PeopleList } from "./PeopleList"
+import { PersonCard } from "./PersonCard";
 export const PeoplePicker = ({ fetchAllPeople, pickAPerson, pickedPerson, unpickedPeople, pickedPeople }) => {
   return (
     <>
@@ -9,10 +10,12 @@ export const PeoplePicker = ({ fetchAllPeople, pickAPerson, pickedPerson, unpick
           <button onClick={() => fetchAllPeople()}>Reset</button>
           <button onClick={() => pickAPerson()}>Pick victim</button>
         </section>
-        {pickedPerson && <section>
-          <h2>Picked person</h2>
-          <div>{pickedPerson?.firstName}</div>
-        </section>}
+        {pickedPerson && (
+          <section>
+            <h2>Picked Person</h2>
+            <PersonCard person={pickedPerson} />
+          </section>
+        )}
       </div>
       <section>
         <h2>Unpicked people</h2>
