@@ -5,7 +5,7 @@ export function PeopleList(props) {
   return (
     <>
       <section style={{ display: "flex", flexWrap: "wrap" }}>
-        {people.map(p => <PersonCard key={p.id} person={p} />)}
+        {people.map(p => <PersonCard key={p?.id} person={p} />)}
       </section>
     </>
   )

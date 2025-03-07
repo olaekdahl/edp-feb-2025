@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { PeopleList } from './PeopleList';
 
 function App() {
@@ -6,11 +6,20 @@ function App() {
   const [pickedPeople, setPickedPeople] = useState([]);
   const [unpickedPeople, setUnpickedPeople] = useState([]);
   const [pickedPerson, setPickedPerson] = useState(null);
-  console.log(unpickedPeople)
-  // When component loads first time, get all the people
-  // When component loads first time, set pickedPeople to all the people
-  // When pickedPerson changes, remove them from unPickedPeople.
-  // When pickedPerson changes, add them to 
+
+  useEffect(() => {
+    fetchAllPeople()
+  }, [])  // Empty array means "run ONLY the first render. Never again."
+
+  useEffect(() => {
+    console.log("new picked person")
+    if (!pickedPerson) return;
+    const newPickedPeople = [...pickedPeople, pickedPerson]
+    setPickedPeople(newPickedPeople)
+    const newUnpickedPeople = unpickedPeople.filter(p => p !== pickedPerson)
+    setUnpickedPeople(newUnpickedPeople)
+  }, [pickedPerson]);  // <- means "run every time pickedPerson changes"
+
   return (
     <>
       <header>
@@ -37,6 +46,8 @@ function App() {
         <section>
           <h2>Already picked people</h2>
           <p>Picked people will go here eventually</p>
+          <PeopleList listOPeople={pickedPeople} /> :
+
         </section>
       </main>
       <footer>
@@ -53,8 +64,8 @@ function App() {
   }
 
   function pickAPerson() {
-    const pickedPerson = unpickedPeople[Math.floor(Math.random() * unpickedPeople.length)];
-    setPickedPerson(pickedPerson);
+    const theRandomPerson = unpickedPeople[Math.floor(Math.random() * unpickedPeople.length)];
+    setPickedPerson(theRandomPerson);
   }
 }
 
