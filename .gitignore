@@ -4,6 +4,7 @@ node_modules/
 # MongoDB database - Allow the data/db folder itself but not
 # the huge DB files that are inside it.
 data/db
+data/people.json
 
 # Logs
 logs/
