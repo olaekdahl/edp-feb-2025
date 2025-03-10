@@ -1,6 +1,6 @@
 import express from "express";
 import cors from 'cors';
-import { addPerson, deletePerson, getPeople, getPersonByFirstName, getPerson, updatePerson } from "./repositories/flatFileRepo.js";
+import { addPerson, deletePerson, getPeople, getPersonByFirstName, getPerson, getPersonByObjectId, updatePerson } from "./repositories/mongoRepo.js";
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -20,6 +20,16 @@ app.get("/api/people/:id([0-9]+)", async (req, res) => {
   const person = await getPerson(id)
   if (!person) {
     res.status(404).send("No person with that ID")
+  }
+  res.send(person)
+});
+
+// GET request to get a person by ObjectId
+app.get("/api/people/:id([a-fA-F0-9]{24})", async (req, res) => {
+  const id = req.params.id;
+  const person = await getPersonByObjectId(id)
+  if (!person) {
+    res.status(404).send("No person with that ObjectId")
   }
   res.send(person)
 });
