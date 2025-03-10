@@ -1,6 +1,7 @@
 import express from "express";
 import cors from 'cors';
-import { addPerson, deletePerson, getPeople, getPersonByFirstName, getPerson, getPersonByObjectId, updatePerson } from "./repositories/mongoRepo.js";
+import { addPerson, deletePerson, getPeople, getPersonByFirstName, getPerson, getPersonByObjectId, updatePerson } from "./repositories/postgresRepo.js";
+import { MongoClient } from "mongodb";
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -85,3 +86,22 @@ app.post("/api/people", async (req, res) => {
 app.use(express.static("."));
 
 app.listen(4000, () => console.log("Listening for HTTP requests on port 4000"));
+
+
+
+
+app.post('/socks/search', async (req, res) => {
+  try {
+      const searchColor = req.body.color;
+
+      const client  = MongoClient.client(url)
+      const db = client.db("tse");
+      const coll = db.collection("socks");
+      const socks = coll.find({color: searchColor});
+      return socks;
+
+  } catch (err) {
+      console.error('Error:', err);
+      res.status(500).send('Hmm, something doesn\'t smell right... Error searching for socks');
+  }
+});

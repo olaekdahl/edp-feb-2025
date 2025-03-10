@@ -4,7 +4,8 @@ const { Pool } = pg;
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: "people",
+  database: "people_picker",
+  password: "postgres",
   port: 5432,
 })
 
@@ -13,7 +14,10 @@ const pool = new Pool({
  * @returns {Promise<Person[]>} A promise that resolves to all people
  */
 export const getPeople = async () => {
-  const result = await pool.query(`SELECT * from people`);
+  const result = await pool.query(`
+      SELECT * 
+      FROM people;
+    `);
   return result.rows;
 };
 
@@ -23,9 +27,13 @@ export const getPeople = async () => {
  * @returns {Promise<Person|undefined>} A promise that resolves to the person found or undefined if no person exists with that id.
  */
 export const getPerson = async (id) => {
-  const result = await pool.query(`SELECT * from people where id = '${id}'`);
+  const result = await pool.query(`SELECT * from people where id = $1`, id);
   if (result.rows.length === 0) return undefined;
-  return result.rows;
+  return result.rows[0];
+};
+
+export const getPersonByObjectId = async (id) => {
+  throw new Error("not implemented");
 };
 
 /**
@@ -34,7 +42,7 @@ export const getPerson = async (id) => {
  * @returns {Promise<Person|undefined>} A promise that resolves to the person found or undefined if no person exists with that name
  */
 export const getPersonByFirstName = async (firstName) => {
-  const result = await pool.query(`SELECT * from people where firstName = '${firstName}'`);
+  const result = await pool.query(`SELECT * from people where firstName = $1'`, firstName);
   if (result.rows.length === 0) return undefined;
   return result.rows;
 };
@@ -46,7 +54,8 @@ export const getPersonByFirstName = async (firstName) => {
  */
 export const addPerson = async (newPerson) => {
   const { firstName, lastName, email, cell, photoUrl } = newPerson;
-  const result = await pool.query(`insert into people (firstName, lastName, email, cell, photoUrl) values $1, $2, $3, $4, $5`,
+  const result = await pool.query(`insert into people 
+    (firstName, lastName, email, cell, photoUrl) values $1, $2, $3, $4, $5`,
     firstName, lastName, email, cell, photoUrl);
   if (result.rowCount !== 1) {
     throw new Error('problem adding to Postgres DB.')
