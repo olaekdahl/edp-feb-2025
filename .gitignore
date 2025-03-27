@@ -1,8 +1,11 @@
+.DS_Store
+
 # Node.js dependencies
 node_modules/
 
 # Unique to this solution
 react19/
+python/
 
 # MongoDB database - Allow the data/db folder itself but not
 # the huge DB files that are inside it.
